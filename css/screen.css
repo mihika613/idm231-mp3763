@@ -1,12 +1,12 @@
 * {
-    box-sizing: border-box; 
+  box-sizing: border-box; 
 }
 
 
 /* colors & variables */
 html {
-    --background-color: #101006;    /* dark gray */  
-    --font-color: #ffffff /* white */     
+  --background-color: #101006;    /* dark gray */  
+  --font-color: #ffffff /* white */     
 }
 
 h1 {
@@ -33,82 +33,111 @@ p {
 html, body {
   margin: 0;
   padding: 0;
-  height: 100vh; /* Full viewport height */
-  display: grid;
-  /* place-items: center;*/
+  height: 100vh;
   background-color: var(--background-color);
-  color: var(--font-color)
+  color: var(--font-color);
 }
 
-/* Main container with two columns */
 body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.main-container {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two equal columns */
-  height: 100vh;
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: auto auto; 
+  align-items: start;
 }
 
-.container {
-  align-items: center;
-  justify-content: center;
-}
+/* 
+MAKING THE MAIN CONTAINER HIDDEN 
 
-/* Left side - Text Content */
+.main-container {
+  display: none;
+}*/
+
 .content-container {
+  grid-column: 1;
+  grid-row: 1; /* aligns the content container in the first row */
   line-height: 0.25rem;
   display: flex;
   flex-direction: column;
-  padding: 50px;
+  padding: 2rem;
+  padding-bottom: 1rem;
   text-align: center;
 }
 
 .record-container {
-  padding-top: 2rem;
-  max-width: 800px;
+  grid-column: 1;
+  grid-row: 2; /* aligns the record container in the second row */
   display: flex;
   flex-direction: row;
-  gap: 10px 40px;
+  gap: 1rem 2.5rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* Right side - Image container */
 .image-container {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: flex-end; 
-  justify-content: flex-end; 
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  max-height: 100vh; /* Prevents it from stretching too much */
+  object-fit: contain; /* Ensures it resizes properly */
 }
 
 .image-link {
   background: transparent;
   border: none;
   padding: 0;
+  cursor: pointer;
 }
 
-.zodiac-page {
+.button {
+  cursor: pointer;
+}
+
+
+.zodiac-container {
   display: grid;
-  grid-template-columns: 1fr 2fr; /* Adjust the ratio as needed */
-  align-items: center; /* Align content vertically */
-  justify-content: center; /* Align content horizontally */
-  gap: 40px; /* Space between the image and text */
-  padding: 20px;
-}
-
-/* Image container */
-.zodiac-image-container {
-  display: flex;
-  justify-content: center; /* Centers the image horizontally */
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
   align-items: center;
+  justify-content: center;
+  
+  /* Centering the whole container */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  /* Optional: Adjust width if needed */
+  width: 100%;
+  max-width: 1300px;
 }
 
-/* Content container */
+/* 
+MAKING THE ZODIAC CONTAINER HIDDEN 
+*/
+.zodiac-container {
+  display: none;
+}
+
+.zodiac-image-container{
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  justify-content: center; 
+  align-self: center;
+}
+
 .zodiac-content-container {
+  grid-column: 2;
+  grid-row: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centers text vertically */
+  justify-content: center; 
   align-items: center;
-  max-width: 600px; /* Restrict width for readability */
+  max-width: 600px; /* restrict width for readability */
 }
 
 .zodiac-content-container h3, h1, h4{
@@ -136,10 +165,4 @@ body {
 
 .italic {
   font-style: italic;
-}
-
-/* Image styling */
-.hero {
-  max-width: 100%;
-  height: auto;
 }

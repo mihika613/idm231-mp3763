@@ -124,3 +124,26 @@ function getZodiac(month, day) {
     document.getElementById('zodiac-description').textContent = description;
     document.getElementById('zodiac-img').src = img;
   }
+
+
+/*
+  function build_my_list() {
+    const my_list_items = ['white', 'green'];
+
+    const my_ul = document.createElement('ul');
+
+    my_list_items.forEach((item) => {
+        const li = document.createElement('li');
+        const label = document.createTextNode(color);
+        li.append(label);
+        my_ul.appendChild(li);
+    });
+
+    document.body.appendChild(my_ul);
+}
+    
+new_p.innerHTML = '<div>
+Hello World
+</div>'
+*/
+
