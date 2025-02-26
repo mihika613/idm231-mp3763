@@ -21,7 +21,27 @@ const maskLibra = document.querySelector('.libra-button');
 const maskScorpio = document.querySelector('.scorpio-button');
 const maskSagittarius = document.querySelector('.sagittarius-button');
 const maskCapricorn = document.querySelector('.capricorn-button');
+const maskGeneralButton = document.getElementById('back');
 
+// Form inputs for date of birth
+const monthInput = document.getElementById('month');
+const dayInput = document.getElementById('day');
+
+// Get the main container and zodiac container
+const mainContainer = document.getElementById('main-container');
+const zodiacContainer = document.getElementById('zodiac-container');
+
+// Function to reveal the zodiac result
+function showZodiacContainer() {
+    mainContainer.style.display = 'none'; // Hide the main container
+    zodiacContainer.style.display = 'grid'; // Show the zodiac container
+}
+
+// Function to go back to the the main container
+function showMainContainer() {
+    mainContainer.style.display = 'grid'; // Show the main container
+    zodiacContainer.style.display = 'none'; // Hide the zodiac container
+}
 
 /**
  * @description
@@ -132,12 +152,15 @@ function getZodiac(month, day) {
     displayAlbum.textContent = albumName;
     displayDescription.textContent = description;
     displayRomance.textContent = romance;
+    
+    // Toggle containers after displaying the zodiac info
+    showZodiacContainer();
 }
 
 
 
 /* event listeners for each zodiac sign button */
-maskAquarius.addEventListener('click', () => getZodiac(1, 15)); 
+maskAquarius.addEventListener('click', () => getZodiac(1, 25)); 
 maskPisces.addEventListener('click', () => getZodiac(2, 19));
 maskAries.addEventListener('click', () => getZodiac(3, 21));
 maskTaurus.addEventListener('click', () => getZodiac(4, 20));
@@ -150,5 +173,12 @@ maskScorpio.addEventListener('click', () => getZodiac(10, 24));
 maskSagittarius.addEventListener('click', () => getZodiac(11, 22));
 maskCapricorn.addEventListener('click', () => getZodiac(12, 22));
 
+maskGeneralButton.addEventListener('click', showMainContainer);
 
-
+// Event listener for the form submission
+document.getElementById('dob').addEventListener('submit', (e) => {
+    e.preventDefault(); // Prevent form from refreshing the page
+    const month = parseInt(monthInput.value, 10);
+    const day = parseInt(dayInput.value, 10);
+    getZodiac(month, day);
+});
