@@ -10,10 +10,10 @@ let helping = "";
 /* These variables select the buttons corresponding to each zodiac sign. 
 They allow the user to click on a specific zodiac sign to display its information. */
 const maskAquarius = document.querySelector('.aquarius-button');
-const maskpisces = document.querySelector('.pisces-button');
+const maskPisces = document.querySelector('.pisces-button');
 const maskAries = document.querySelector('.aries-button');
 const maskTaurus = document.querySelector('.taurus-button');
-const maskAGemini = document.querySelector('.gemini-button');
+const maskGemini = document.querySelector('.gemini-button');
 const maskCancer = document.querySelector('.cancer-button');
 const maskLeo = document.querySelector('.leo-button');
 const maskVirgo = document.querySelector('.virgo-button');
@@ -116,34 +116,39 @@ function getZodiac(month, day) {
         albumName = 'TRILOGY';
         description = "Aquarius' love for the avant-garde and the unexpected is perfectly embodied in this genre-defying track. Its experimental sound reflects their innovative approach to life, while the juxtaposition of light and dark elements mirrors their ability to balance individuality and collective progress. The song's rebellious and unconventional energy aligns with Aquarius' unique perspective and their tendency to break free from societal norms. Like the water bearer, they bring fresh ideas to the world, and this track captures their boundary-pushing nature.";
         romance = "Romance: Aquarius values freedom in relationships, thriving with a partner who respects their individuality.";
-    } else return alert('Please enter a valid date!');
+    } 
 
-    document.getElementById('zodiac-sign').textContent = sign;
-    document.getElementById('song-name').textContent = songName;
-    document.getElementById('album-name').textContent = albumName;
-    document.getElementById('zodiac-description').textContent = description;
-    document.getElementById('zodiac-img').src = img;
-  }
+    /* Select and update the content displayed for each zodiac sign */
+    const displaySign = document.querySelector('#zodiac-sign');
+    const displayImage = document.querySelector('#zodiac-img');
+    const displaySong = document.querySelector('#song-name');
+    const displayAlbum = document.querySelector('#album-name');
+    const displayDescription = document.querySelector('#zodiac-description');
+    const displayRomance = document.querySelector('#romance');
 
-
-/*
-  function build_my_list() {
-    const my_list_items = ['white', 'green'];
-
-    const my_ul = document.createElement('ul');
-
-    my_list_items.forEach((item) => {
-        const li = document.createElement('li');
-        const label = document.createTextNode(color);
-        li.append(label);
-        my_ul.appendChild(li);
-    });
-
-    document.body.appendChild(my_ul);
+    displaySign.textContent = sign;
+    displayImage.src = img;
+    displaySong.textContent = songName;
+    displayAlbum.textContent = albumName;
+    displayDescription.textContent = description;
+    displayRomance.textContent = romance;
 }
-    
-new_p.innerHTML = '<div>
-Hello World
-</div>'
-*/
+
+
+
+/* event listeners for each zodiac sign button */
+maskAquarius.addEventListener('click', () => getZodiac(1, 15)); 
+maskPisces.addEventListener('click', () => getZodiac(2, 19));
+maskAries.addEventListener('click', () => getZodiac(3, 21));
+maskTaurus.addEventListener('click', () => getZodiac(4, 20));
+maskGemini.addEventListener('click', () => getZodiac(5, 21));
+maskCancer.addEventListener('click', () => getZodiac(6, 22));
+maskLeo.addEventListener('click', () => getZodiac(7, 23));
+maskVirgo.addEventListener('click', () => getZodiac(8, 23));
+maskLibra.addEventListener('click', () => getZodiac(9, 23));
+maskScorpio.addEventListener('click', () => getZodiac(10, 24));
+maskSagittarius.addEventListener('click', () => getZodiac(11, 22));
+maskCapricorn.addEventListener('click', () => getZodiac(12, 22));
+
+
 
