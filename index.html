@@ -15,26 +15,19 @@
     <div class="main-container" id="main-container">
         <div class="content-container">
             <h1>The Weeknd's Star</h1>
-            <h4>✦ Find out which of the Weeknd's songs you are based on the stars. ✦</h4>
+            <h4>★ Find out which of the Weeknd's songs you are based on the stars. ★</h4>
 
             <form id="dob">
-                <div class="dob-text">
-                    <h4>
-                        <b>Enter your birthday:</b>
-                    </h4>
-                </div>
                 <div class="dob-details">
-                    <div class="dob-month-day">
-                        <label for = "input-month">Month:</label>
-                        <input class="input-month" type="number" id="month" min="1" max="12" required>
-                        <label for = "input-day">Day:</label>
-                        <input class="input-day" type="number" id="day" min="1" max="31" required>
-                    </div>
+                    <label for = "birthday">Enter Your Birthday:</label>
                     <br>
-                    <button class="general-button">
+                    <input type="date" name="birthday" required>
+                    <br>
+                    <button type="submit" class="general-button">
                         submit
                     </button>
                 </div>
+                <ul class="errors" hidden></ul>
             </form>
         </div>
             
