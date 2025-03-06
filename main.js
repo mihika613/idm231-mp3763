@@ -191,9 +191,33 @@ function log_birthday(birthday) {
     return date;
 }
 
+// get today's date
+const today = new Date();
+
+// format it to YYYY-MM-DD (only date part, no time zone issue)
+const formattedDate = today.toLocaleDateString('en-CA');  // 'en-CA' format is YYYY-MM-DD
+
+// get the birthday input field and set the max value
+const birthdayInput = document.querySelector('input[name="birthday"]');
+if (birthdayInput) {
+    birthdayInput.setAttribute('max', formattedDate);
+}
+
 function handle_submit(event) {
     event.preventDefault();
     const errors = [];
+
+    // Get the birthday value
+    const birthdayValue = form.elements['birthday'].value;
+    
+    // Convert it to a date object
+    const selectedDate = new Date(birthdayValue);
+    
+    // Compare with today's date
+    if (selectedDate > today) {
+        errors.push("The date cannot be in the future.");
+    }
+
     if (errors.length) {
         errors.forEach((error) => {
             const li = document.createElement('li');
