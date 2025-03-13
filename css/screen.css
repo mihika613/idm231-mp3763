@@ -46,14 +46,8 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr; 
   grid-template-rows: auto auto; 
+  margin-top: 1rem;
 }
-
-/* 
-MAKING THE MAIN CONTAINER HIDDEN 
-
-.main-container {
-  display: none;
-}*/
 
 .directions-and-help {
   display: flex;
@@ -87,12 +81,12 @@ MAKING THE MAIN CONTAINER HIDDEN
   justify-content: center;
 }
 
-/* Right side - Image container */
+/* right side - image container */
 .image-container {
   grid-column: 2;
   grid-row: 1 / span 2;
-  max-height: 100vh; /* Prevents it from stretching too much */
-  object-fit: contain; /* Ensures it resizes properly */
+  max-height: 100vh; /* prevents it from stretching too much */
+  object-fit: contain; /* ensures it resizes properly */
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -138,13 +132,11 @@ input {
   align-items: center;
   justify-content: center;
   
-  /* Centering the whole container */
+  /* centering the whole container */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
-  /* Optional: Adjust width if needed */
   width: 100%;
   max-width: 1300px;
 }
@@ -165,8 +157,8 @@ MAKING THE ZODIAC CONTAINER HIDDEN
 }
 
 #zodiac-img {
-  border-top-left-radius: 1000px;
-  border-top-right-radius: 1000px;
+  border-top-left-radius: 250px;
+  border-top-right-radius: 250px;
 }
 
 .zodiac-content-container {

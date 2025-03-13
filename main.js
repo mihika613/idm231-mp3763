@@ -144,7 +144,7 @@ const zodiac_data = [
 ]
 
 // variables to select the buttons corresponding to each zodiac sign
-//allow the user to click on a specific zodiac sign to display its information.
+// allow the user to click on a specific zodiac sign to display its information.
 const maskAquarius = document.querySelector('.aquarius-button');
 const maskPisces = document.querySelector('.pisces-button');
 const maskAries = document.querySelector('.aries-button');
@@ -168,14 +168,14 @@ const zodiacContainer = document.getElementById('zodiac-container');
 
 // function to reveal the zodiac result
 function showZodiacContainer() {
-    mainContainer.style.display = 'none'; // Hide the main container
-    zodiacContainer.style.display = 'grid'; // Show the zodiac container
+    mainContainer.style.display = 'none'; // hide the main container
+    zodiacContainer.style.display = 'grid'; // show the zodiac container
 }
 
 // function to go back to the the main container
 function showMainContainer() {
-    mainContainer.style.display = 'grid'; // Show the main container
-    zodiacContainer.style.display = 'none'; // Hide the zodiac container
+    mainContainer.style.display = 'grid'; // show the main container
+    zodiacContainer.style.display = 'none'; // hide the zodiac container
 }
 
 // handling the form
@@ -207,13 +207,13 @@ function handle_submit(event) {
     event.preventDefault();
     const errors = [];
 
-    // Get the birthday value
+    // get the birthday value
     const birthdayValue = form.elements['birthday'].value;
     
-    // Convert it to a date object
+    // convert it to a date object
     const selectedDate = new Date(birthdayValue);
     
-    // Compare with today's date
+    // compare with today's date
     if (selectedDate > today) {
         errors.push("The date cannot be in the future.");
     }
